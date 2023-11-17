@@ -36,4 +36,4 @@ func _process(delta):
 		$Logo.pos.y += $Logo.speed * delta
 
 	if Input.is_action_just_pressed("Primary Action"):
-		$Logo.pos.x += 5000 * delta
+		$Logo.pos.x += 6000 * delta
