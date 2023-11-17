@@ -1,2 +1,2 @@
 # SunCreamer
-A Ssun lotion game made by the SunCreamer team.
+A Sun lotion game made by the SunCreamer team.
