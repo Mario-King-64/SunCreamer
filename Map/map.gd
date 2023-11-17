@@ -26,14 +26,14 @@ func _process(delta):
 	if Input.is_action_pressed("left"):
 		$Logo.pos.x -= $Logo.speed * delta
 	
-#	if Input.is_action_pressed("right"):
-#		$Logo.pos.x += $Logo.speed * delta
-#
-#	if Input.is_action_pressed("up"):
-#		$Logo.pos.y -= $Logo.speed * delta
-#
-#	if Input.is_action_pressed("down"):
-#		$Logo.pos.y += $Logo.speed * delta
-#
-#	if Input.is_action_just_pressed("Primary Action"):
-#		$Logo.pos.x += 5000 * delta
+	if Input.is_action_pressed("right"):
+		$Logo.pos.x += $Logo.speed * delta
+
+	if Input.is_action_pressed("up"):
+		$Logo.pos.y -= $Logo.speed * delta
+
+	if Input.is_action_pressed("down"):
+		$Logo.pos.y += $Logo.speed * delta
+
+	if Input.is_action_just_pressed("Primary Action"):
+		$Logo.pos.x += 5000 * delta
