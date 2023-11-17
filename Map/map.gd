@@ -6,10 +6,11 @@ var test_array: Array[String] = ["Test", "Hello", "Stuff"]
 func _ready():
 	$Logo.rotation_degrees = 0 ##Use 90 for testing
 	
+	
 #	for i in test_array:
 #		print(i)
 #	print(test_array[0])
-	
+
 func _process(delta):
 #	$Logo.rotation_degrees += 100 * delta
 	
@@ -17,11 +18,17 @@ func _process(delta):
 #	if $Logo.rotation_degrees > 245:
 #		$Logo.rotation_degrees = 0
 
-	if $Logo.position.x > 1000:
+	if $Logo.position.x > 1152:
 		$Logo.pos.x = 0
 	
 	if $Logo.position.x < 0:
-		$Logo.pos.x = 1000
+		$Logo.pos.x = 1152
+	
+	if $Logo.position.y > 648:
+		$Logo.pos.y = 0
+	
+	if $Logo.position.y < 0:
+		$Logo.pos.y = 648
 	
 	if Input.is_action_pressed("left"):
 		$Logo.pos.x -= $Logo.speed * delta

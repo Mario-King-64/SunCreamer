@@ -1,7 +1,7 @@
 extends Sprite2D
 
 var pos: Vector2 = Vector2.ZERO
-const speed: int = 200
+const speed: int = 300
 var test_scale: int = 1
 
 # Called when the node enters the scene tree for the first time.
