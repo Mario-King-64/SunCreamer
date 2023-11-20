@@ -28,7 +28,7 @@ func _process(delta):
 		$Logo.pos.y = 0
 	
 	if $Logo.position.y < 0:
-		$Logo.pos.y = 649
+		$Logo.pos.y = 648
 	
 	if Input.is_action_pressed("left"):
 		$Logo.pos.x -= $Logo.speed * delta
