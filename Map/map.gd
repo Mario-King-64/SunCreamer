@@ -6,6 +6,8 @@ var test_array: Array[String] = ["Test", "Hello", "Stuff"]
 func _ready():
 	$Logo.rotation_degrees = 0 ##Use 90 for testing
 	
+	position = position.snapped(Vector2.ONE * tile_size)
+	position += Vector2.ONE * tile_size/2
 	
 #	for i in test_array:
 #		print(i)
@@ -30,14 +32,16 @@ func _process(delta):
 	if $Logo.position.y < 0:
 		$Logo.pos.y = 1024
 	
-	if Input.is_action_pressed("left"):
-		$Logo.pos.x -= $Logo.speed * delta
-	
-	if Input.is_action_pressed("right"):
-		$Logo.pos.x += $Logo.speed * delta
+var tile_size = 64
+var inputs = {"right": Vector2.RIGHT,
+			"left": Vector2.LEFT,
+			"up": Vector2.UP,
+			"down": Vector2.DOWN}
 
-	if Input.is_action_pressed("up"):
-		$Logo.pos.y -= $Logo.speed * delta
+func _unhandled_input(event):
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			move(dir)
 
-	if Input.is_action_pressed("down"):
-		$Logo.pos.y += $Logo.speed * delta
+func move(dir):
+	position += inputs[dir] * tile_size
