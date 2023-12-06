@@ -1,12 +1,12 @@
 extends Sprite2D
 
 var pos: Vector2 = Vector2.ZERO
-const speed: int = 300
+const speed: int = 128	
 var test_scale: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pos = Vector2(300, 200)
+	pos = Vector2(512, 512)
 	position = pos
 	
 #	var test_rotation = 45
