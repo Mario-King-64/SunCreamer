@@ -7,6 +7,12 @@
 [node name="Map" type="Node2D"]
 script = ExtResource("1_2thst")
 
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(524, 548)
+scale = Vector2(22.5, 10.5313)
+texture = ExtResource("1_lj0tl")
+
 [node name="Logo" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_lj0tl")
 script = ExtResource("2_7quyn")
