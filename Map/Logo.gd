@@ -1,8 +1,5 @@
 extends Sprite2D
 
-@onready var Player = $Logo
-var animation_speed = 3
-var moving = false
 var tile_size = 64
 var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
@@ -31,20 +28,9 @@ func _process(delta):
 		position.y = 960
 
 func _unhandled_input(event):
-	if moving:
-		return
 	for direction in inputs.keys():
 		if event.is_action_pressed(direction):
 			move(direction)
 
 func move(direction):
-	Player.target_position = inputs[direction] * tile_size
-	Player.force_raycast_update()
-	if !Player.is_colliding():
-		#position += inputs[dir] * tile_size
-		var tween = create_tween()
-		tween.tween_property(self, "position",
-			position + inputs[direction] *    tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-		moving = true
-		await tween.finished
-		moving = false
+	position += inputs[direction] * tile_size

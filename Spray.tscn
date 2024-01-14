@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdsm0iu5i7d3m"]
+
+[ext_resource type="Texture2D" uid="uid://mfqi8g0eqe0a" path="res://Suncream/spray  ani v2.png" id="1_vkcis"]
+[ext_resource type="Script" path="res://Spray.gd" id="1_waiif"]
+
+[sub_resource type="Animation" id="Animation_vju4c"]
+resource_name = "SprayRight"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_10nll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qgamo"]
+resource_name = "SprayLeft"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 0), Vector2i(2, 0), Vector2i(3, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i2evj"]
+resource_name = "SprayUp"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(0, 2), Vector2i(1, 3), Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_t3ny1"]
+resource_name = "SprayDown"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 2), Vector2i(3, 3), Vector2i(2, 2), Vector2i(2, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wc4nw"]
+_data = {
+"RESET": SubResource("Animation_10nll"),
+"SprayDown": SubResource("Animation_t3ny1"),
+"SprayLeft": SubResource("Animation_qgamo"),
+"SprayRight": SubResource("Animation_vju4c"),
+"SprayUp": SubResource("Animation_i2evj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kjol"]
+size = Vector2(16, 16)
+
+[node name="Spray" type="CharacterBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_waiif")
+
+[node name="Spray" type="Sprite2D" parent="."]
+texture = ExtResource("1_vkcis")
+hframes = 4
+vframes = 4
+
+[node name="AnimationSpray" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Spray")
+libraries = {
+"": SubResource("AnimationLibrary_wc4nw")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kjol")
